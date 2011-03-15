@@ -1,0 +1,11 @@
+Fuzz-Mutator v0.1
+Author: Michal 'carstein' Melewski <carstein.sec@gmail.com>
+
+Description:
+The idea behind the project is simple - how often you have a fuzz list with 200 different string, and you want to transform it in some way (let's say do the random swapcase and then do the double URI encoding). Well, now it should be easier.
+
+Short tutorial:
+<script>alert(1)</script>
+
+Make your own class
+
