@@ -11,4 +11,5 @@ class Mutator(mutator.MutatorFrame):
         # Load basic transformations and encoding
         self.register_transformation(trns.add_sql_comments)
         self.register_transformation(trns.random_case_swap)
-        self.register_encoder(enc.uri_encode)
+        self.register_encoder(enc.empty_encode)
+        self.register_encoder(enc.double_uri_encode)

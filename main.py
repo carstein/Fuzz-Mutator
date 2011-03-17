@@ -7,9 +7,9 @@ import getopt
 
 def print_help():
     print(
-    """Usage: ./main.py -f fuzz_file [-o output] [-m mutator] [-h] 
+    """Usage: ./main.py -f input [-o output] [-m mutator] [-h] 
     -h              - print this help 
-    -f fuzz_file    - mutate fuzz string from this file
+    -f input        - mutate strings from this file
     -o output       - save results in a output file
     -m mutator      - use specified mutator"""
     )
@@ -23,7 +23,9 @@ def mutate(config):
         mutator_module = __import__("laboratory.%s" % config['mutator'], fromlist=["laboratory"])
         mutator = mutator_module.Mutator()
     except ImportError:
-        print "Could not find mutator: %s"%config['mutator']
+        print("Could not find mutator: %s"%config['mutator'])
+    except NotImplementedError:
+        print("Could not make mutator from a mutatorFrame class")
    
     if config['input_file'] == "":
         print("No input file provided")

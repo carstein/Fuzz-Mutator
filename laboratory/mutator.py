@@ -6,13 +6,14 @@ import string
 import itertools
 
 
-class MutatorFrame(object):
-    # TODO - add protection agains making an instance of this class
-    
+class MutatorFrame(object):   
     t_list=[]
     fuzz_lines=[]
     e_list=[]
     output=[]
+    
+    def __init__(self):
+        raise NotImplementedError
     
     def register_transformation(self,t):
         self.t_list.append(t)
@@ -63,8 +64,11 @@ class MutatorFrame(object):
             print line,
      
     def encode(self):
+        output=[]
         for e in self.e_list:
-            self.output=map(e,self.output)
+            output+=(map(e,self.output))
+        
+        self.output=output
     
     def reduce(self):
         seen = {} 
