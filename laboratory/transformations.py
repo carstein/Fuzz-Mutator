@@ -4,9 +4,8 @@
 import random
 import string
 
-def add_sql_comments(str):
+def add_sql_comments(t0):
 	"""Insert comments into SQL command"""
-	t0=str
 	
 	t1=t0.replace(" ","/**/")
 	t2=t1.replace("=","/**/=")
@@ -15,10 +14,9 @@ def add_sql_comments(str):
 	
 	return tn
 
-def random_case_swap(str):
+def random_case_swap(t0):
     """Randomly swap cases from uppercase to lowercase and vice versa in a string"""
     
-    t0=str
     t1=""
     
     for c in t0:
@@ -30,3 +28,4 @@ def random_case_swap(str):
     tn=t1
     
     return tn
+
